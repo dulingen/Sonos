@@ -3,12 +3,14 @@
     <script type="text/javascript">
         function Get_accessinformation()
 		{   
-			$("#informtaion").text = getQueryVariable("code");
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
 			//xhttp.send(getUrlVars()["code"]);
 		}
-
+		function setTextToGETCode()
+		{
+			$("#informtaion").text(getQueryVariable("code"));
+		}
 		function getQueryVariable(variable)
 		{
 			var query = window.location.search.substring(1);
