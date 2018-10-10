@@ -7,6 +7,10 @@
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
 				xhttp.send(getQueryVariable("code"));
+
+				var data = JSON.parse(this.response);
+
+				$("informtaion").text(data)
 			}
 		}
 		function setTextToGETCode()
