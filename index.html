@@ -3,7 +3,7 @@
     <script type="text/javascript">
         function Get_accessinformation()
 		{ 
-			informtaion.InnerHTML = getUrlVars()["code"]; 
+			$("informtaion").innerHTML = getUrlVars()["code"];
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
 			xhttp.send(getUrlVars()["code"]);
@@ -23,7 +23,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>AS</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>AS</title>
     </head>
     <body onload="Get_accessinformation(); ">
 		
