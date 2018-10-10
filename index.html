@@ -2,10 +2,12 @@
 
     <script type="text/javascript">
         function Get_accessinformation()
-		{   
-			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
-			//xhttp.send(getUrlVars()["code"]);
+		{   if (getQueryVariable("code") != "")
+			{
+				var xhttp = new XMLHttpRequest();
+				xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
+				xhttp.send(getUrlVars()["code"]);
+			}
 		}
 		function setTextToGETCode()
 		{
