@@ -3,13 +3,24 @@
     <script type="text/javascript">
         function Get_accessinformation()
 		{   
-			var get_value = window.location.href.match(/(?<=code=)(.*?)[^&]+/)[0]; 
-
-			$("informtaion").innerHTML = get_value;
+			$("informtaion").innerHTML = getQueryVariable("code");
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
 			//xhttp.send(getUrlVars()["code"]);
 		}
+		function getQueryVariable(variable)
+		{
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i=0;i<vars.length;i++) 
+				{
+				   var pair = vars[i].split("=");
+				   if(pair[0] == variable){return pair[1];
+				}
+			}
+			return(false);
+		}
+
 	</script>
 <html lang="en">
     <head>
@@ -17,7 +28,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<title>AS</title>
     </head>
-    <body onload="Get_accessinformation(); ">
+    <body onload="Get_accessinformation() ">
 		
 		<div id="informtaion">Hejsan</div>
 		<button onclick="location.href='https://api.sonos.com/login/v3/oauth?client_id=a62e800d-db39-4183-8110-399d98317c62&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html'" type="button">
