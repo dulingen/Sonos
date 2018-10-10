@@ -3,6 +3,7 @@
     <script>
         func Get_accessinformation()
 		{ 
+			location.href='https://api.sonos.com/login/v3/oauth?client_id=a62e800d-db39-4183-8110-399d98317c62&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html'
 			xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
 			informtaion.InnerHTML = getUrlVars()["code"]; 
 			xhttp.send(getUrlVars()["code"];);
@@ -27,7 +28,7 @@
     </head>
     <body>
        <div id="informtaion"/>
-       <button onclick="location.href='https://api.sonos.com/login/v3/oauth?client_id=a62e800d-db39-4183-8110-399d98317c62&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html' Get_accessinformation()" type="button">
+       <button onclick=" Get_accessinformation()" type="button">
 Sign in with Sonos
 </button>
     </body>
