@@ -3,6 +3,7 @@
     <script type="text/javascript">
         function Get_accessinformation()
 		{   
+			$("informtaion").innerHTML = "Dumy"
 			$("informtaion").innerHTML = getQueryVariable("code");
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
@@ -30,7 +31,7 @@
     </head>
     <body onload="Get_accessinformation() ">
 		
-		<div id="informtaion">Hejsan</div>
+		<div id="informtaion"></div>
 		<button onclick="location.href='https://api.sonos.com/login/v3/oauth?client_id=a62e800d-db39-4183-8110-399d98317c62&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html'" type="button">
 		Sign in with Sonos
 		</button>
