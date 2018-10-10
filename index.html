@@ -2,23 +2,14 @@
 
     <script type="text/javascript">
         function Get_accessinformation()
-		{ 
-			$("informtaion").innerHTML = getUrlVars()["code"];
+		{   
+			var get_value = window.location.href.match(/(?<=code=)(.*?)[^&]+/)[0]; 
+
+			$("informtaion").innerHTML = get_value;
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
 			xhttp.send(getUrlVars()["code"]);
 		}
-
-		function getUrlVars() 
-		{
-			var vars = {};
-			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) 
-			{
-				vars[key] = value;
-			});
-				return vars;
-		}
-
 	</script>
 <html lang="en">
     <head>
