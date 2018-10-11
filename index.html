@@ -15,7 +15,7 @@
 		}
 		function setTextToGETCode()
 		{
-			$("#informtaion").text((getQueryVariable("code")));
+			$("#informtaion").text(btoa(getQueryVariable("code")));
 		}
 		function getQueryVariable(variable)
 		{
