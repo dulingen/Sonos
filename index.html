@@ -6,17 +6,17 @@
 			{
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
-				//xhttp.send("authorization_code",getQueryVariable("code"),"https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html" );
+				xhttp.send("authorization_code",btoa("a62e800d-db39-4183-8110-399d98317c62:"+getQueryVariable("code")),"https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html" );
 
-				//var data = JSON.parse(this.response);
+				var data = JSON.parse(this.response);
 
-				//$("informtaion").text(data)
+				$("informtaion").text(data)
 			}
 		}
 		function setTextToGETCode()
 		{
-			//$("#informtaion").text(btoa(/*getQueryVariable("code")*/"d68b5d8e-b711-4321-9a0b-b7ade8b22b5d:b1d4ab27-9824-7841-a8dc-1eba69fc5225"));
-			$("#informtaion").text(btoa("d68b5d8e-b711-4321-9a0b-b7ade8b22b5d:b1d4ab27-9824-7841-a8dc-1eba69fc5225"));
+			$("#informtaion").text(btoa("a62e800d-db39-4183-8110-399d98317c62:"+getQueryVariable("code")));
+			//$("#informtaion").text(btoa("d68b5d8e-b711-4321-9a0b-b7ade8b22b5d:b1d4ab27-9824-7841-a8dc-1eba69fc5225")); //Teststräng för cryptot
 		}
 		function getQueryVariable(variable)
 		{
