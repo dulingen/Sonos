@@ -11,7 +11,7 @@
 					},
 					type: "POST",
 					dataType: "json",
-					data: { Authorization: Basic btoa("a62e800d-db39-4183-8110-399d98317c62:"+getQueryVariable("code")); 
+					data: { Authorization: "Basic"+btoa("a62e800d-db39-4183-8110-399d98317c62:"+getQueryVariable("code"))
 						
 					},
 					success: function (result) {
