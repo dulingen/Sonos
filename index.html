@@ -4,13 +4,30 @@
         function Get_accessinformation()
 		{   if (getQueryVariable("code") != "")
 			{
-				var xhttp = new XMLHttpRequest();
-				xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
-				xhttp.send("authorization_code",btoa("a62e800d-db39-4183-8110-399d98317c62:"+getQueryVariable("code")),"https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html" );
+				$.ajax({
+					url: 'https://api.sonos.com/login/v3/oauth/access',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					type: "POST",
+					dataType: "json",
+					data: { Authorization: Basic btoa("a62e800d-db39-4183-8110-399d98317c62:"+getQueryVariable("code")) 
+						
+					},
+					success: function (result) {
+						console.log(result);    
+					},
+					error: function () {
+						console.log("error");
+					}
+				});
 
-				var data = JSON.parse(this.response);
+				//var xhttp = new XMLHttpRequest();
+				//xhttp.open("POST", "https://api.sonos.com/login/v3/oauth/access", true);
+				//xhttp.send("authorization_code",btoa("a62e800d-db39-4183-8110-399d98317c62:"+getQueryVariable("code")),"https:%2F%2Fdulingen.github.io%2FSonos%2Findex.html" );
 
-				$("informtaion").text(data)
+				//var data = JSON.parse(this.response);
+				//$("informtaion").text(data)
 			}
 		}
 		function setTextToGETCode()
